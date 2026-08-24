@@ -1,0 +1,31 @@
+Developer Hub Roadmap
+
+Profile experience
+- Favorites / pinned profiles with persistent localStorage
+- Platform logos
+- Account status indicators
+- Compact profile statistics panels
+- Copy profile URL feedback
+- Sorting by name, category, pinned status, recently added
+- Keyboard search: /, Esc, Up, Down
+
+Dashboard
+- Ctrl+K command palette
+- Category statistics
+- Recently visited profiles
+- Recently added NEW badges
+
+Personal layer
+- About section
+- Social links
+- Resume link
+- Portfolio link
+
+Advanced integrations
+- Live GitHub statistics
+- GitHub repository browser
+- Uptime / availability indicators
+- QR code for aaqibhafeez.is-a.dev
+- PWA / offline experience
+
+Developer Command Center vision: compact terminal-style personal developer operating system.
