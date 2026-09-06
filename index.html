@@ -3,105 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="aaqibhafeez — coding, learning, data and freelance profiles in one place." />
   <title>aaqibhafeez — profiles</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23222%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%234ade80%22 font-family=%22monospace%22 font-weight=%22bold%22 font-size=%2260%22>&gt;_</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0e0e0e;
-      --surface: #161616;
-      --border: #2a2a2a;
-      --text: #e8e8e8;
-      --muted: #5a5a5a;
-      --dim: #3a3a3a;
-      --hover-bg: #1a1a1a;
-      --green: #4ade80;
-      --yellow: #facc15;
-      --icon-bg: #1b1b1b;
+      --bg: #f6f7f5;
+      --surface: #ffffff;
+      --surface-soft: #f0f2ef;
+      --border: #dde1dc;
+      --border-strong: #c7cdc6;
+      --text: #171a18;
+      --muted: #6d756e;
+      --accent: #198754;
+      --accent-soft: #e7f5ed;
+      --warm: #b7791f;
+      --warm-soft: #fff5df;
+      --shadow: 0 18px 50px rgba(20, 30, 24, .07);
     }
-    [data-theme="light"] {
-      --bg: #f5f5f0;
-      --surface: #eaeae5;
-      --border: #d0d0c8;
-      --text: #111111;
-      --muted: #888880;
-      --dim: #c0c0b8;
-      --hover-bg: #e0e0d8;
-      --green: #16a34a;
-      --yellow: #ca8a04;
-      --icon-bg: #e3e3dc;
+    [data-theme="dark"] {
+      --bg: #0c100e;
+      --surface: #121814;
+      --surface-soft: #18201a;
+      --border: #28332b;
+      --border-strong: #38453b;
+      --text: #edf2ee;
+      --muted: #8e9b91;
+      --accent: #55c98a;
+      --accent-soft: #153323;
+      --warm: #e2b35b;
+      --warm-soft: #302817;
+      --shadow: 0 18px 55px rgba(0, 0, 0, .28);
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{font-size:14px}
-    body{font-family:'JetBrains Mono',monospace;background:var(--bg);color:var(--text);min-height:100vh;transition:background .2s,color .2s}
-    .page{max-width:860px;margin:0 auto;padding:4rem 2rem 6rem}
-    header{margin-bottom:3rem;border-bottom:1px solid var(--border);padding-bottom:2rem}
-    .header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.4rem}
-    .name{font-size:1.05rem;font-weight:700;color:var(--text)}
-    .name span{color:var(--muted);font-weight:400}
-    .tagline{font-size:.75rem;color:var(--muted);margin-top:.3rem}
-    .theme-btn{background:none;border:1px solid var(--border);color:var(--muted);font:inherit;font-size:.7rem;padding:.28rem .65rem;cursor:pointer;border-radius:2px;transition:color .15s,border-color .15s;white-space:nowrap}
-    .theme-btn:hover{color:var(--text);border-color:var(--dim)}
-    .stats{font-size:.7rem;color:var(--muted);display:flex;gap:1.5rem;flex-wrap:wrap}
-    .stats b{color:var(--text);font-weight:500}
-    .controls{margin-bottom:1.5rem;display:flex;flex-direction:column;gap:.7rem}
-    .search-wrap{position:relative}
-    .search-prefix{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.75rem;pointer-events:none;user-select:none}
-    #search{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.55rem .7rem .55rem 4.4rem;font:inherit;font-size:.78rem;color:var(--text);outline:none;transition:border-color .15s}
-    #search:focus{border-color:var(--dim)}
-    #search::placeholder{color:var(--muted)}
-    .filters{display:flex;flex-wrap:wrap;gap:.35rem}
-    .filter-btn{font:inherit;font-size:.68rem;padding:.22rem .6rem;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:2px;transition:color .15s,border-color .15s}
-    .filter-btn:hover{color:var(--text);border-color:var(--dim)}
-    .filter-btn.active{color:var(--text);border-color:var(--text)}
-    .list-header,.platform-row{display:grid;grid-template-columns:1fr 80px 28px 28px}
-    .list-header{padding:.35rem .6rem;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--border);margin-bottom:.15rem}
-    .platform-row{align-items:center;padding:.5rem .6rem;border-bottom:1px solid var(--border);transition:background .1s;animation:fadeIn .25s both}
-    .platform-row:hover{background:var(--hover-bg)}
-    .platform-row.pinned-row{border-left:2px solid var(--yellow);padding-left:calc(.6rem - 2px)}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-    .row-main{display:flex;align-items:center;gap:.65rem;min-width:0}
-    .row-index{font-size:.65rem;color:var(--muted);width:1.4rem;text-align:right;flex-shrink:0}
-    .platform-icon{width:30px;height:30px;display:grid;place-items:center;flex-shrink:0;border:1px solid var(--border);border-radius:4px;background:var(--icon-bg);overflow:hidden}
-    .platform-icon img{width:17px;height:17px;display:block;filter:none}
-    [data-theme="dark"] .platform-icon img{filter:invert(1)}
-    .platform-icon .fallback{display:none;font-size:.62rem;font-weight:700;color:var(--muted)}
-    .platform-icon.broken img{display:none}
-    .platform-icon.broken .fallback{display:block}
-    .row-text{min-width:0}
-    .row-name{font-size:.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .row-desc{font-size:.68rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
-    .row-cat{font-size:.68rem;color:var(--muted)}
-    .act-btn{background:none;border:none;cursor:pointer;color:var(--dim);font:inherit;font-size:.82rem;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:2px;transition:color .12s,background .12s;text-decoration:none;position:relative}
-    .act-btn:hover{color:var(--text);background:var(--border)}
-    .act-btn.pin-active{color:var(--yellow)}
-    .act-btn.copied{color:var(--green)}
-    .act-btn::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.62rem;padding:.18rem .45rem;border-radius:2px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .12s}
-    .act-btn:hover::after{opacity:1}
-    .empty{padding:2.5rem .6rem;font-size:.75rem;color:var(--muted)}
-    footer{margin-top:2.5rem;font-size:.68rem;color:var(--muted);border-top:1px solid var(--border);padding-top:1.2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
-    @media (max-width:540px){.page{padding:2rem 1rem 4rem}.list-header,.platform-row{grid-template-columns:1fr 28px 28px}.row-cat,.list-header .col-cat{display:none}.platform-icon{width:28px;height:28px}.platform-icon img{width:15px;height:15px}}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 30rem), var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      transition: background .2s ease, color .2s ease;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .page { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 64px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -90px;
+      top: -100px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      pointer-events: none;
+    }
+    .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
+    .eyebrow { margin: 0 0 10px; color: var(--accent); font: 600 12px/1 JetBrains Mono, monospace; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(28px, 5vw, 44px); line-height: 1.08; letter-spacing: -.04em; }
+    h1 span { color: var(--muted); font-weight: 400; }
+    .intro { max-width: 680px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .theme-btn {
+      position: relative; z-index: 2; flex: 0 0 auto; border: 1px solid var(--border-strong); border-radius: 999px;
+      background: var(--surface); color: var(--text); padding: 9px 14px; cursor: pointer; font: 600 12px JetBrains Mono, monospace;
+    }
+    .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .stats { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .stat { padding: 8px 11px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-soft); color: var(--muted); font: 12px JetBrains Mono, monospace; }
+    .stat b { color: var(--text); font-weight: 600; }
+    .toolbar { margin: 28px 0 18px; display: grid; gap: 12px; }
+    .search-wrap { position: relative; }
+    .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--muted); font: 14px JetBrains Mono, monospace; pointer-events: none; }
+    #search {
+      width: 100%; border: 1px solid var(--border); border-radius: 12px; outline: none; background: var(--surface); color: var(--text);
+      padding: 14px 16px 14px 42px; font-size: 14px; box-shadow: 0 4px 16px rgba(20, 30, 24, .03); transition: border .15s, box-shadow .15s;
+    }
+    #search::placeholder { color: var(--muted); }
+    #search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-btn {
+      border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--muted); padding: 7px 12px;
+      cursor: pointer; font: 600 11px JetBrains Mono, monospace; text-transform: capitalize; transition: all .15s ease;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .list-shell { overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+    .list-header { display: grid; grid-template-columns: 1fr 110px 86px; padding: 12px 18px; border-bottom: 1px solid var(--border); background: var(--surface-soft); color: var(--muted); font: 600 10px JetBrains Mono, monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .platform-row { display: grid; grid-template-columns: 1fr 110px 86px; align-items: center; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--border); transition: background .15s ease, transform .15s ease; }
+    .platform-row:last-child { border-bottom: 0; }
+    .platform-row:hover { background: var(--surface-soft); }
+    .platform-row.pinned-row { box-shadow: inset 3px 0 0 var(--warm); }
+    .row-main { min-width: 0; display: flex; align-items: center; gap: 13px; }
+    .platform-icon { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-soft); color: var(--accent); font: 700 12px JetBrains Mono, monospace; }
+    .row-text { min-width: 0; }
+    .row-name { display: flex; align-items: center; gap: 7px; min-width: 0; font-size: 14px; font-weight: 600; }
+    .row-name a { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: inherit; text-decoration: none; }
+    .row-name a:hover { color: var(--accent); }
+    .pin-badge { color: var(--warm); font: 11px JetBrains Mono, monospace; }
+    .row-desc { margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: 12px; }
+    .row-cat { color: var(--muted); font: 11px JetBrains Mono, monospace; text-transform: capitalize; }
+    .actions { display: flex; justify-content: flex-end; gap: 3px; }
+    .act-btn {
+      position: relative; width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 9px;
+      background: transparent; color: var(--muted); cursor: pointer; text-decoration: none; font-size: 14px; transition: all .15s ease;
+    }
+    .act-btn:hover { background: var(--surface-soft); color: var(--text); }
+    .act-btn.pin-active { color: var(--warm); }
+    .act-btn.copied { color: var(--accent); }
+    .act-btn::after { content: attr(data-tip); position: absolute; right: 0; bottom: calc(100% + 7px); padding: 5px 8px; border: 1px solid var(--border); border-radius: 7px; background: var(--surface); color: var(--text); font: 10px JetBrains Mono, monospace; white-space: nowrap; opacity: 0; pointer-events: none; transform: translateY(3px); transition: opacity .12s, transform .12s; }
+    .act-btn:hover::after { opacity: 1; transform: translateY(0); }
+    .empty { padding: 42px 18px; text-align: center; color: var(--muted); font-size: 13px; }
+    footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 22px; color: var(--muted); font: 11px JetBrains Mono, monospace; }
+    footer span:last-child { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+    @media (max-width: 680px) {
+      .page { width: min(100% - 20px, 1040px); padding-top: 20px; }
+      .hero { padding: 25px 20px; border-radius: 16px; }
+      .hero-top { flex-direction: column; }
+      .theme-btn { position: absolute; right: 0; top: 0; }
+      .list-header { display: none; }
+      .platform-row { grid-template-columns: 1fr auto; padding: 13px 14px; }
+      .row-cat { display: none; }
+      .platform-icon { width: 34px; height: 34px; flex-basis: 34px; }
+      .row-name { font-size: 13px; }
+      .row-desc { font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="header-top">
-        <div><div class="name">aaqibhafeez <span>/ profiles</span></div><div class="tagline">all my coding, learning &amp; freelance accounts — one place</div></div>
-        <button class="theme-btn" id="themeBtn">[ dark ]</button>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">aaqibhafeez / profiles</p>
+          <h1>My tech accounts <span>in one place.</span></h1>
+          <p class="intro">All my coding, learning, data &amp; freelance accounts — collected into one simple, searchable portfolio.</p>
+        </div>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch color theme">☾ dark</button>
       </div>
-      <div class="stats"><span>total <b id="statTotal">24</b></span><span>showing <b id="statVisible">24</b></span><span>pinned <b id="statPinned">0</b></span><span>categories <b>5</b></span></div>
-    </header>
-    <div class="controls">
-      <div class="search-wrap"><span class="search-prefix">/search</span><input id="search" type="text" placeholder="platform, category, keyword…" autocomplete="off" spellcheck="false" /></div>
-      <div class="filters" id="filters"></div>
-    </div>
-    <div class="list-header"><div>platform</div><div class="col-cat">category</div><div></div><div></div></div>
-    <div id="list"></div>
-    <footer><span>aaqibhafeez khan</span><span id="clock"></span></footer>
-  </div>
+      <div class="stats" aria-label="Profile statistics">
+        <span class="stat">accounts <b id="statTotal">24</b></span>
+        <span class="stat">showing <b id="statVisible">24</b></span>
+        <span class="stat">pinned <b id="statPinned">0</b></span>
+        <span class="stat">categories <b id="statCategories">5</b></span>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Account filters">
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Search platforms, categories, or keywords…" autocomplete="off" spellcheck="false" aria-label="Search accounts" />
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+    </section>
+
+    <section class="list-shell" aria-label="Technology accounts">
+      <div class="list-header"><div>platform</div><div>category</div><div>actions</div></div>
+      <div id="list"></div>
+    </section>
+
+    <footer>
+      <span>aaqibhafeez khan</span>
+      <span id="clock" aria-live="polite"></span>
+    </footer>
+  </main>
+
   <script>
     const platforms = [
       { name:"GitHub", slug:"github", url:"https://github.com/aaqib-hafeez-khan-in", cat:"coding", desc:"repos and contributions" },
@@ -134,67 +216,119 @@
     let activeFilter = "all";
     let query = "";
     let pinned = JSON.parse(localStorage.getItem("ahk_pinned") || "[]");
+    let isDark = localStorage.getItem("ahk_theme") === "dark";
+
     const themeBtn = document.getElementById("themeBtn");
-    let isDark = false;
+    const search = document.getElementById("search");
+    const filtersEl = document.getElementById("filters");
+    const listEl = document.getElementById("list");
+
+    function applyTheme() {
+      document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+      themeBtn.textContent = isDark ? "☀ light" : "☾ dark";
+    }
 
     themeBtn.addEventListener("click", () => {
       isDark = !isDark;
-      document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-      themeBtn.textContent = isDark ? "[ light ]" : "[ dark ]";
+      localStorage.setItem("ahk_theme", isDark ? "dark" : "light");
+      applyTheme();
     });
 
-    function tick(){const n=new Date();document.getElementById("clock").textContent=n.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false})}
-    tick();setInterval(tick,1000);
+    function initials(name) {
+      return name.replace(/[^A-Za-z0-9 ]/g, "").split(" ").map(part => part[0]).join("").slice(0, 2).toUpperCase();
+    }
 
-    const filtersEl=document.getElementById("filters");
-    categories.forEach(cat=>{
-      const btn=document.createElement("button");
-      btn.className="filter-btn"+(cat==="all"?" active":"");
-      btn.textContent=cat;
-      btn.addEventListener("click",()=>{document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");activeFilter=cat;render()});
-      filtersEl.appendChild(btn);
+    function copyURL(url, btn) {
+      navigator.clipboard.writeText(url).then(() => {
+        btn.classList.add("copied");
+        btn.setAttribute("data-tip", "copied");
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.setAttribute("data-tip", "copy url");
+        }, 1500);
+      }).catch(() => {});
+    }
+
+    function togglePin(slug) {
+      pinned = pinned.includes(slug) ? pinned.filter(item => item !== slug) : [...pinned, slug];
+      localStorage.setItem("ahk_pinned", JSON.stringify(pinned));
+      render();
+    }
+
+    function matches(platform) {
+      const haystack = `${platform.name} ${platform.cat} ${platform.desc}`.toLowerCase();
+      return (activeFilter === "all" || platform.cat === activeFilter) && (!query || haystack.includes(query));
+    }
+
+    function renderFilters() {
+      filtersEl.innerHTML = "";
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `filter-btn${cat === activeFilter ? " active" : ""}`;
+        btn.textContent = cat;
+        btn.setAttribute("aria-pressed", String(cat === activeFilter));
+        btn.addEventListener("click", () => {
+          activeFilter = cat;
+          renderFilters();
+          render();
+        });
+        filtersEl.appendChild(btn);
+      });
+    }
+
+    function render() {
+      const visible = platforms.filter(matches).sort((a, b) => Number(pinned.includes(b.slug)) - Number(pinned.includes(a.slug)));
+      document.getElementById("statTotal").textContent = platforms.length;
+      document.getElementById("statVisible").textContent = visible.length;
+      document.getElementById("statPinned").textContent = pinned.length;
+      document.getElementById("statCategories").textContent = categories.length - 1;
+
+      if (!visible.length) {
+        listEl.innerHTML = `<div class="empty">No profiles match your search. Try another keyword or category.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = visible.map((platform, index) => {
+        const isPinned = pinned.includes(platform.slug);
+        return `<article class="platform-row${isPinned ? " pinned-row" : ""}">
+          <div class="row-main">
+            <div class="platform-icon" aria-hidden="true">${initials(platform.name)}</div>
+            <div class="row-text">
+              <div class="row-name">
+                <a href="${platform.url}" target="_blank" rel="noopener noreferrer">${platform.name}</a>
+                ${isPinned ? `<span class="pin-badge" aria-label="Pinned">★</span>` : ""}
+              </div>
+              <div class="row-desc">${platform.desc}</div>
+            </div>
+          </div>
+          <div class="row-cat">${platform.cat}</div>
+          <div class="actions">
+            <button class="act-btn${isPinned ? " pin-active" : ""}" type="button" data-tip="${isPinned ? "unpin" : "pin"}" aria-label="${isPinned ? "Unpin" : "Pin"} ${platform.name}" data-action="pin" data-slug="${platform.slug}">${isPinned ? "★" : "☆"}</button>
+            <button class="act-btn" type="button" data-tip="copy url" aria-label="Copy ${platform.name} URL" data-action="copy" data-url="${platform.url}">↗</button>
+          </div>
+        </article>`;
+      }).join("");
+
+      listEl.querySelectorAll("[data-action='pin']").forEach(btn => btn.addEventListener("click", () => togglePin(btn.dataset.slug)));
+      listEl.querySelectorAll("[data-action='copy']").forEach(btn => btn.addEventListener("click", () => copyURL(btn.dataset.url, btn)));
+    }
+
+    search.addEventListener("input", event => {
+      query = event.target.value.trim().toLowerCase();
+      render();
     });
 
-    document.getElementById("search").addEventListener("input",e=>{query=e.target.value.toLowerCase();render()});
-
-    function copyURL(url,btn){navigator.clipboard.writeText(url).then(()=>{btn.classList.add("copied");btn.setAttribute("data-tip","copied!");setTimeout(()=>{btn.classList.remove("copied");btn.setAttribute("data-tip","copy url")},1600)})}
-    function togglePin(name){const i=pinned.indexOf(name);if(i===-1)pinned.push(name);else pinned.splice(i,1);localStorage.setItem("ahk_pinned",JSON.stringify(pinned));render()}
-
-    function iconFor(p){
-      const wrap=document.createElement("div");wrap.className="platform-icon";wrap.title=p.name;
-      const img=document.createElement("img");img.src=`https://cdn.simpleicons.org/${p.slug}`;img.alt="";img.loading="lazy";img.referrerPolicy="no-referrer";
-      const fallback=document.createElement("span");fallback.className="fallback";fallback.textContent=p.name.slice(0,2).toUpperCase();
-      img.addEventListener("error",()=>wrap.classList.add("broken"));
-      wrap.append(img,fallback);return wrap;
+    function tick() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
     }
 
-    function render(){
-      const list=document.getElementById("list");list.innerHTML="";
-      let filtered=platforms.filter(p=>{
-        const matchCat=activeFilter==="all"||p.cat===activeFilter;
-        const matchQ=!query||p.name.toLowerCase().includes(query)||p.cat.includes(query)||p.desc.includes(query);
-        return matchCat&&matchQ;
-      });
-      filtered.sort((a,b)=>(pinned.includes(a.name)?0:1)-(pinned.includes(b.name)?0:1));
-      document.getElementById("statVisible").textContent=filtered.length;
-      document.getElementById("statTotal").textContent=platforms.length;
-      document.getElementById("statPinned").textContent=pinned.length;
-      if(!filtered.length){list.innerHTML=`<div class="empty">no results for "${query||activeFilter}"</div>`;return}
-      filtered.forEach((p,i)=>{
-        const isPinned=pinned.includes(p.name);
-        const row=document.createElement("div");row.className="platform-row"+(isPinned?" pinned-row":"");row.style.animationDelay=`${i*.02}s`;
-        const main=document.createElement("div");main.className="row-main";
-        const index=document.createElement("span");index.className="row-index";index.textContent=String(i+1).padStart(2,"0");
-        const icon=iconFor(p);
-        const text=document.createElement("div");text.className="row-text";text.innerHTML=`<div class="row-name">${p.name}</div><div class="row-desc">${p.desc}</div>`;
-        main.append(index,icon,text);
-        const cat=document.createElement("div");cat.className="row-cat";cat.textContent=p.cat;
-        const pinBtn=document.createElement("button");pinBtn.className="act-btn"+(isPinned?" pin-active":"");pinBtn.setAttribute("data-tip",isPinned?"unpin":"pin");pinBtn.textContent=isPinned?"★":"☆";pinBtn.addEventListener("click",()=>togglePin(p.name));
-        const visitBtn=document.createElement("a");visitBtn.className="act-btn";visitBtn.setAttribute("data-tip","open");visitBtn.href=p.url;visitBtn.target="_blank";visitBtn.rel="noopener";visitBtn.textContent="↗";
-        row.append(main,cat,pinBtn,visitBtn);list.appendChild(row);
-      });
-    }
+    applyTheme();
+    renderFilters();
     render();
+    tick();
+    setInterval(tick, 1000);
   </script>
 </body>
 </html>
